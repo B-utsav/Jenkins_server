@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudNova | AWS Cloud Solutions</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
+
+header{
+background:#111827;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#ff9900;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff9900;
+}
+
+.hero{
+
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+
+color:white;
+
+}
+
+.hero-text{
+max-width:550px;
+}
+
+.hero h1{
+font-size:58px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+
+padding:14px 34px;
+background:#ff9900;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:600;
+transition:.4s;
+}
+
+.btn:hover{
+background:#ff7b00;
+}
+
+.hero img{
+width:520px;
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
+.title{
+
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+}
+
+.services{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+
+}
+
+.card{
+
+background:white;
+padding:35px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.card i{
+
+font-size:50px;
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+
+}
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+text-align:center;
+background:#111827;
+color:white;
+
+padding:60px 8%;
+
+}
+
+.counter{
+
+font-size:50px;
+font-weight:700;
+color:#ff9900;
+
+}
+
+.pricing{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+
+}
+
+.plan{
+
+background:white;
+padding:40px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.price{
+
+font-size:42px;
+color:#ff9900;
+margin:20px 0;
+
+}
+
+.plan ul{
+
+list-style:none;
+line-height:2;
+
+}
+
+.contact{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+
+}
+
+input,textarea{
+
+width:100%;
+padding:15px;
+margin-bottom:20px;
+border:1px solid #ddd;
+border-radius:10px;
+
+}
+
+button{
+
+padding:15px 40px;
+background:#ff9900;
+color:white;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+
+}
+
+footer{
+
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+
+}
+
+.mobile{
+
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+justify-content:center;
+text-align:center;
+padding-top:100px;
+}
+
+.hero img{
+
+width:90%;
+margin-top:40px;
+
+}
+
+.contact{
+
+grid-template-columns:1fr;
+
+}
+
+.stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+nav{
+
+display:none;
+position:absolute;
+top:70px;
+left:0;
+background:#111827;
+width:100%;
+
+}
+
+nav ul{
+
+flex-direction:column;
+padding:20px;
+
+}
+
+nav.show{
+
+display:block;
+
+}
+
+.mobile{
+
+display:block;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CloudNova</div>
+
+<div class="mobile">☰</div>
+
+<nav>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>Accelerate Your Business with AWS Cloud</h1>
+
+<p>
+CloudNova provides AWS consulting, cloud migration,
+DevOps automation, security, backup solutions,
+and managed cloud infrastructure.
+</p>
+
+<a href="#contact" class="btn">Get Started</a>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Cloud">
+
+</section>
+
+<section id="services">
+
+<h2 class="title">Our AWS Services</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Cloud Migration</h3>
+<p>Move your applications securely to AWS with zero downtime.</p>
+</div>
+
+<div class="card">
+<h3>DevOps</h3>
+<p>CI/CD pipelines, Docker, Kubernetes and Infrastructure as Code.</p>
+</div>
+
+<div class="card">
+<h3>Cloud Security</h3>
+<p>IAM, WAF, Shield, monitoring and compliance solutions.</p>
+</div>
+
+<div class="card">
+<h3>Managed Services</h3>
+<p>24/7 cloud monitoring and infrastructure management.</p>
+</div>
+
+<div class="card">
+<h3>Disaster Recovery</h3>
+<p>Automated backup and business continuity planning.</p>
+</div>
+
+<div class="card">
+<h3>Cloud Optimization</h3>
+<p>Reduce AWS bills and improve cloud performance.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div>
+
+<div class="counter" data-target="500">0</div>
+
+Projects
+
+</div>
+
+<div>
+
+<div class="counter" data-target="150">0</div>
+
+Clients
+
+</div>
+
+<div>
+
+<div class="counter" data-target="99">0</div>
+
+Success %
+
+</div>
+
+<div>
+
+<div class="counter" data-target="24">0</div>
+
+Support
+
+</div>
+
+</section>
+
+<section id="pricing">
+
+<h2 class="title">Pricing</h2>
+
+<div class="pricing">
+
+<div class="plan">
+
+<h2>Starter</h2>
+
+<div class="price">$199</div>
+
+<ul>
+
+<li>AWS Setup</li>
+<li>Monitoring</li>
+<li>Email Support</li>
+
+</ul>
+
+</div>
+
+<div class="plan">
+
+<h2>Business</h2>
+
+<div class="price">$599</div>
+
+<ul>
+
+<li>Migration</li>
+<li>DevOps</li>
+<li>24/7 Support</li>
+
+</ul>
+
+</div>
+
+<div class="plan">
+
+<h2>Enterprise</h2>
+
+<div class="price">Custom</div>
+
+<ul>
+
+<li>Everything Included</li>
+<li>Dedicated Engineer</li>
+<li>Priority Support</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Us</h2>
+
+<div class="contact">
+
+<div>
+
+<h2>Let's Build on AWS</h2>
+
+<p>
+Ready to modernize your infrastructure?
+Contact our AWS experts today.
+</p>
+
+</div>
+
+<form>
+
+<input placeholder="Your Name">
+
+<input placeholder="Email">
+
+<textarea rows="6" placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 CloudNova Technologies | AWS Cloud Consulting
+
+</footer>
+
+<script>
+
+const mobile=document.querySelector(".mobile");
+const nav=document.querySelector("nav");
+
+mobile.onclick=()=>{
+nav.classList.toggle("show");
+}
+
+const counters=document.querySelectorAll(".counter");
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.dataset.target;
+
+const count=+counter.innerText;
+
+const inc=target/100;
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+inc);
+
+setTimeout(update,20);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+}
+
+update();
+
+});
+
+document.querySelector("form").addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+alert("Thank you! Our AWS team will contact you shortly.");
+
+});
+
+</script>
+
+</body>
+</html>
