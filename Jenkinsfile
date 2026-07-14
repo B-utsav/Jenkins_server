@@ -19,7 +19,7 @@ pipeline {
                 sh '''
                 docker stop aws-website || true
                 docker rm aws-website || true
-                docker run -d --name aws-website -p 54.211.188.243:1432:80 aws-website
+                docker run -d --name aws-website -p 1432:80 aws-website
                 '''
             }
         }
